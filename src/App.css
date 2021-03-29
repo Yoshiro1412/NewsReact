@@ -1,0 +1,55 @@
+.newsGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 1em;
+    grid-auto-flow: dense;
+}
+
+body{
+    background-color: #eef0f5;
+}
+
+.new{
+    display: grid;
+    grid-template: "title" 1fr
+                   "link" .2fr/
+                    1fr;
+    position: relative;
+    border-radius: 1em;
+    padding: 1em;
+    box-sizing: border-box;
+    color: black;
+    background-color: rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
+}
+
+.new:nth-child(2n){
+    grid-column: span 2;
+}
+
+.new h1{
+    grid-area: title;
+    font-size: 1.5em;
+}
+
+.new a{
+    color: inherit;
+    grid-area: link;
+    font-size: 2.5em;
+}
+
+@media only screen and (max-width: 1250px){
+    .new:nth-child(2n){
+        grid-column: span 1;
+    }
+
+    .new:nth-child(3n){
+        grid-column: span 2;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .new:nth-child(3n){
+        grid-column: span 1;
+    }
+}
